@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text ballText;
     public Text levelText;
+    public Text highScoreText;
     public GameObject panelMenu;
     public GameObject panelPlay;
     public GameObject panelLevelCompleted;
@@ -101,13 +102,20 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case State.MENU:
+                Cursor.visible = true;
+                highScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("highscore");
                 panelMenu.SetActive(true);
                 break;
             case State.INIT:
+                Cursor.visible = false;
                 panelPlay.SetActive(true);
                 Score = 0;
                 Level = 0;
                 Balls = 3;
+                if (_currentLevel != null)
+                {
+                    Destroy(_currentLevel);
+                }
                 Instantiate(playerPrefab);
                 SwitchState(State.LOADLEVEL);
                 break;
@@ -132,6 +140,10 @@ public class GameManager : MonoBehaviour
                 }
                 break;
             case State.GAMEOVER:
+                if (Score > PlayerPrefs.GetInt("highscore"))
+                {
+                    PlayerPrefs.SetInt("highscore", Score);
+                }
                 panelGameOver.SetActive(true);
                 break;
             default:
@@ -171,6 +183,10 @@ public class GameManager : MonoBehaviour
             case State.LOADLEVEL:
                 break;
             case State.GAMEOVER:
+                if (Input.anyKeyDown)
+                {
+                    SwitchState(State.MENU);
+                }
                 break;
         }
     }
