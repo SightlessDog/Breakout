@@ -3,7 +3,18 @@ guid: b3c3384926a33f34e8f020b52bab903b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ballPrefab: {instanceID: 0}
+  - playerPrefab: {fileID: 8685870600017399760, guid: 9460c7ab230297e4c9c8bd958a32e0df, type: 3}
+  - characterPrefab: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - ballText: {instanceID: 0}
+  - levelText: {instanceID: 0}
+  - highScoreText: {instanceID: 0}
+  - panelMenu: {instanceID: 0}
+  - panelPlay: {instanceID: 0}
+  - panelLevelCompleted: {instanceID: 0}
+  - panelGameOver: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
