@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06a5b6081b053e4db60b109563b17b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: 20
+  hits: 2
   points: 500
