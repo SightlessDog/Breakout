@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject ballPrefab;
+    public GameObject characterPrefab;
     public GameObject playerPrefab;
     public Text scoreText;
     public Text ballText;
@@ -140,7 +141,7 @@ public class GameManager : MonoBehaviour
                 {
                     Destroy(_currentLevel);
                 }
-                Instantiate(playerPrefab);
+                Instantiate(characterPrefab);
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
