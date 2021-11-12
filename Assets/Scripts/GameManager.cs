@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public Text ballText;
     public Text levelText;
     public Text highScoreText;
+    public Text inputText;
     public GameObject panelMenu;
     public GameObject panelPlay;
     public GameObject panelLevelCompleted;
@@ -26,8 +27,8 @@ public class GameManager : MonoBehaviour
         get;
         private set;
     }
-    
-    public enum State {MENU, INIT, PLAY, LEVELCOMPLETED, LOADLEVEL,GAMEOVER}
+
+    public enum State { MENU, INIT, PLAY, LEVELCOMPLETED, LOADLEVEL, GAMEOVER }
     private State _state;
     private GameObject _currentBall;
     private GameObject _currentLevel;
@@ -36,14 +37,15 @@ public class GameManager : MonoBehaviour
     private int _score;
     public int Score
     {
-        get {
+        get
+        {
             return _score;
         }
         set
         {
             _score = value;
             scoreText.text = "SCORE: " + _score;
-        } 
+        }
     }
 
     private int _level;
@@ -70,18 +72,40 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool _playerInput = true;
+    public bool PlayerInput
+    {
+        get { return _playerInput; }
+        set { _playerInput = value; }
+    }
+    
+
     public void PlayClicked()
     {
         SwitchState(State.INIT);
     }
-     
+
+    public void ChangePlayerInput()
+    {
+        if (inputText.text == "KEYBOARD")
+        {
+            inputText.text = "MOUSE";
+            _playerInput = true;
+        }
+        else
+        {
+            inputText.text = "KEYBOARD";
+            _playerInput = false;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
         SwitchState(State.MENU);
-    } 
-    
+    }
+
     public void SwitchState(State newState, float delay = 0)
     {
         StartCoroutine(SwitchDelay(newState, delay));
@@ -211,8 +235,8 @@ public class GameManager : MonoBehaviour
                 panelPlay.SetActive(false);
                 panelGameOver.SetActive(false);
                 break;
-        } 
+        }
     }
 
-    
+
 }
