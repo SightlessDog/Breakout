@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
                     Destroy(_currentLevel);
                 }
                 Instantiate(characterPrefab);
+                Instantiate(playerPrefab);
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:

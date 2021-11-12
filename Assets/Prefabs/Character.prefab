@@ -801,7 +801,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1655105589225645897}
-  - component: {fileID: -8792530252284163865}
   - component: {fileID: 1838692706908826734}
   - component: {fileID: 1605243890506166608}
   - component: {fileID: 1099466923540973216}
@@ -829,19 +828,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 177.472, z: 0}
---- !u!65 &-8792530252284163865
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8685870600017399760}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1838692706908826734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,8 +871,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.064241335, y: 0.08165731, z: 0.054963976}
+  m_Center: {x: 0.0026168658, y: 0.046540815, z: 0.004300341}
 --- !u!54 &7281291815084592392
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -901,7 +887,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!1 &9016197093138040195
 GameObject:
