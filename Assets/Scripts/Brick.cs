@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    [SerializeField] private int hits = 1; 
+    [SerializeField] private int hits = 1;
     [SerializeField] private int points = 100;
     [SerializeField] private Vector3 rotator;
     [SerializeField] private Material hitMaterial;
 
     private Material _orgMaterial;
+    public AudioSource _hitSource;
 
     private Renderer _renderer;
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class Brick : MonoBehaviour
         _renderer = GetComponent<Renderer>();
         _orgMaterial = _renderer.sharedMaterial;
         transform.Rotate(rotator * (transform.position.x + transform.position.y) * 0.1f);
+        _hitSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +30,8 @@ public class Brick : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        _hitSource.Play();
+        Debug.Log("HIT");
         hits--;
         // Score points
         if (hits <= 0)

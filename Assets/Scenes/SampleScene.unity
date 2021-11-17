@@ -165,8 +165,8 @@ MonoBehaviour:
   panelLevelCompleted: {fileID: 1796812803}
   panelGameOver: {fileID: 699975544}
   levels:
-  - {fileID: 5762651683216780692, guid: 015d7f842af92a440b575f52385f2670, type: 3}
   - {fileID: 5762651683216780692, guid: fb61440bd20475d4382ab41b5d9c372a, type: 3}
+  - {fileID: 5762651683216780692, guid: 015d7f842af92a440b575f52385f2670, type: 3}
 --- !u!4 &12469590
 Transform:
   m_ObjectHideFlags: 0
