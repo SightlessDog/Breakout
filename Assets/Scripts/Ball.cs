@@ -46,6 +46,6 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // We use the _velocity that we stored so we guarantee that the ball will get bounced
-        _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
+        _rigidBody.velocity = Vector3.Reflect((Brick.Instance.Acceleration * _velocity), collision.contacts[0].normal);
     }
 }
