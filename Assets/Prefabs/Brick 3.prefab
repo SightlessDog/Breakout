@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8204210547577487061}
   - component: {fileID: 5904271442343857943}
   - component: {fileID: 8773518514656666924}
-  - component: {fileID: 405318331571781804}
+  - component: {fileID: 2190312130932362463}
   m_Layer: 0
-  m_Name: Brick 1
+  m_Name: Brick 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4674765046115677244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 0}
-  m_LocalScale: {x: 1.95, y: 0.95, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: eb95c06f153092446bd9afe830da1ef0, type: 2}
+  - {fileID: 2100000, guid: 9f19070e294a16a498f083b5553744d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,12 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8725e372a86ff549bae25c1b9cb774d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: 1
-  points: 100
-  acceleration: 1
+  hits: 2
+  points: 200
   rotator: {x: 45, y: 0, z: 0}
   hitMaterial: {fileID: 2100000, guid: 178982047543da3498524c155bc6beb1, type: 2}
---- !u!65 &405318331571781804
+--- !u!65 &2190312130932362463
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,5 +110,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8205584, y: 0.9102793, z: 0.45513964}
+  m_Size: {x: 1.8205585, y: 0.9102793, z: 0.45513964}
   m_Center: {x: 0, y: 0, z: 0}
