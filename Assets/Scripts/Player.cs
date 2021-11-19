@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody _rigidbody;
     public AudioClip _hitPlayerEffect;
+    public static Rigidbody _rigidbody;
 
     void Start()
     {
