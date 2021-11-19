@@ -97,6 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hits: 2
   points: 200
+  acceleration: 1
+  resizeWidth: 1
   rotator: {x: 45, y: 0, z: 0}
   hitMaterial: {fileID: 2100000, guid: 178982047543da3498524c155bc6beb1, type: 2}
 --- !u!65 &2190312130932362463

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody _rigidbody;
+    public static Rigidbody _rigidbody;
 
     void Start()
     {

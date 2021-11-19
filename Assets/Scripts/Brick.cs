@@ -6,14 +6,19 @@ public class Brick : MonoBehaviour
 {
     [SerializeField] private int hits = 1; 
     [SerializeField] private int points = 100;
+    
     [SerializeField] private float acceleration = 1f;
+    [SerializeField] private float resizeWidth = 1f;
+    
     [SerializeField] private Vector3 rotator;
     [SerializeField] private Material hitMaterial;
 	
     private Material _orgMaterial;
 
     private Renderer _renderer;
-    
+    private Vector3 scaleChange;
+    private float brickWidth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +35,8 @@ public class Brick : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        brickWidth = Player._rigidbody.GetComponent<Renderer>().bounds.size.x;
+        
         hits--;
         // Score points
         if (hits <= 0)
@@ -37,10 +44,15 @@ public class Brick : MonoBehaviour
             GameManager.Instance.Score += points;
             Destroy(gameObject);
         }
+        
 		if (Ball._speed <= 50f)
 		{
-			Ball._speed *= acceleration;
-        	_renderer.sharedMaterial = hitMaterial;
+            Ball._speed *= acceleration;
+
+            scaleChange = new Vector3(resizeWidth, 1f, 1f);
+            Player._rigidbody.transform.localScale = scaleChange;
+
+            _renderer.sharedMaterial = hitMaterial;
         	Invoke("RestoreMaterial", 0.05f);
 		}
 		_renderer.sharedMaterial = hitMaterial;
