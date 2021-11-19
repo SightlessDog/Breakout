@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public AudioClip _hitPlayerEffect;
     public static Rigidbody _rigidbody;
 
     void Start()
@@ -29,6 +30,10 @@ public class Player : MonoBehaviour
         {
             KeyboardMovement();
         }
+    }
+
+    void OnCollisionEnter(Collision collision){
+        SoundManager.Instance.Play(_hitPlayerEffect);        
     }
 
     void MouseMovement()

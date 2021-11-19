@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    [SerializeField] private int hits = 1; 
+    [SerializeField] private int hits = 1;
     [SerializeField] private int points = 100;
     
     [SerializeField] private float acceleration = 1f;
@@ -14,6 +14,7 @@ public class Brick : MonoBehaviour
     [SerializeField] private Material hitMaterial;
 	
     private Material _orgMaterial;
+    public AudioClip _hitBrickEffect;
 
     private Renderer _renderer;
     private Vector3 scaleChange;
@@ -35,8 +36,8 @@ public class Brick : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        brickWidth = Player._rigidbody.GetComponent<Renderer>().bounds.size.x;
-        
+        SoundManager.Instance.Play(_hitBrickEffect);        
+        brickWidth = Player._rigidbody.GetComponent<Renderer>().bounds.size.x;        
         hits--;
         // Score points
         if (hits <= 0)

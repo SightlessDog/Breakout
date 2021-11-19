@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4674765046115677244}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 0}
-  m_LocalScale: {x: 1.95, y: 0.95, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -101,6 +101,8 @@ MonoBehaviour:
   resizeWidth: 1
   rotator: {x: 45, y: 0, z: 0}
   hitMaterial: {fileID: 2100000, guid: 178982047543da3498524c155bc6beb1, type: 2}
+  _hitSource: {fileID: 0}
+  _hitBrickEffect: {fileID: 8300000, guid: 00162dfc020a5ce41a005702f7ff6021, type: 3}
 --- !u!65 &405318331571781804
 BoxCollider:
   m_ObjectHideFlags: 0

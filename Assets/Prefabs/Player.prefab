@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aafce4ca14cafb44eb6e8d8ceac4ef31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitPlayerEffect: {fileID: 8300000, guid: 9361944134c1dd54f9574d343131c53b, type: 3}
 --- !u!54 &1599102425721570597
 Rigidbody:
   m_ObjectHideFlags: 0
