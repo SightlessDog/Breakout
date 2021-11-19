@@ -6,12 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody _rigidbody;
-    public AudioSource _hitSource;
+    public AudioClip _hitPlayerEffect;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _hitSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,7 +33,7 @@ public class Player : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        _hitSource.Play();
+        SoundManager.Instance.Play(_hitPlayerEffect);        
     }
 
     void MouseMovement()
