@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
     private Rigidbody _rigidbody;
     [SerializeField] private int rotationSpeed = 100;
     private Animator anim;
-    private bool touchingWithPaddle = false;
+    public bool touchingWithPaddle = false;
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +42,6 @@ public class Character : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         // TODO this name needs to be changed 
-        Debug.Log("Touching with " + collider.name);
         if (collider.name == "Player(Clone)")
         {
             touchingWithPaddle = true;
