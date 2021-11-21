@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 6d7043edbbfb24c24a08c0178b74ccd8
+=======
+guid: 9e73e41046c1c1f40b43fcb3a753134a
+>>>>>>> 816447d (feat(Light): change the light of the scene)
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

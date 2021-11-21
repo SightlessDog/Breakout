@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject ballPrefab;
     public GameObject characterPrefab;
     public GameObject playerPrefab;
+    public GameObject paddleLight;
+    public GameObject ballLight;
     public Text scoreText;
     public Text ballText;
     public Text levelText;
@@ -155,6 +157,8 @@ public class GameManager : MonoBehaviour
                     Destroy(_currentLevel);
                 }
                 _currentPlayer = Instantiate(playerPrefab);
+                Instantiate(paddleLight);
+                Instantiate(ballLight);
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
