@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    private Rigidbody _rigidbody;
+    private Rigidbody _rigidBody;
     [SerializeField] private int rotationSpeed = 100;
     private Animator anim;
     public bool touchingWithPaddle = false;
@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        _rigidbody = GetComponent<Rigidbody>();
+        _rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class Character : MonoBehaviour
     {
         var rotationX = Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed;
 
-        if (_rigidbody.velocity.y < 0)
+        if (_rigidBody.velocity.y < 0)
         {
             anim.Play(Animator.StringToHash(("Falling")));
         }
@@ -36,6 +36,14 @@ public class Character : MonoBehaviour
             {
                 anim.Play(Animator.StringToHash("Standing"));
             }
+        }
+    }
+
+    void FixedUpdate(){
+         if (_rigidBody.position.y <= -20)
+        {
+            GameManager.Instance.CharacterAlive = false;
+            Destroy(gameObject);
         }
     }
 

@@ -81,7 +81,13 @@ public class GameManager : MonoBehaviour
         get { return _playerInput; }
         set { _playerInput = value; }
     }
-    
+
+    private bool _characterAlive = true;
+    public bool CharacterAlive
+    {
+        get { return _characterAlive; }
+        set { _characterAlive = value; }
+    }
 
     public void PlayClicked()
     {
@@ -139,6 +145,7 @@ public class GameManager : MonoBehaviour
                 Score = 0;
                 Level = 0;
                 Balls = 3;
+                CharacterAlive = true;
                 if (_currentLevel != null)
                 {
                     Destroy(_currentLevel);
@@ -200,13 +207,21 @@ public class GameManager : MonoBehaviour
                         SwitchState(State.GAMEOVER);
                     }
                 }
+
                 if (_currentCharacter == null)
                 {
-                    _currentCharacter = Instantiate(characterPrefab);
-                    scriptCharacter = _currentCharacter.GetComponent<Character>();
+                    if (_characterAlive)
+                    {
+                        _currentCharacter = Instantiate(characterPrefab);
+                        scriptCharacter = _currentCharacter.GetComponent<Character>();
+                    }
+                    else
+                    {
+                        SwitchState(State.GAMEOVER);
+                    }
                 }
-                
-                if (_currentLevel != null && scriptCharacter.touchingWithPaddle && !_isSwitchingState )
+
+                if (_currentLevel != null && scriptCharacter.touchingWithPaddle && !_isSwitchingState)
                 {
                     SwitchState(State.LEVELCOMPLETED);
                 }
