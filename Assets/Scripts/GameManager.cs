@@ -33,8 +33,10 @@ public class GameManager : MonoBehaviour
     private State _state;
     private GameObject _currentBall;
     private GameObject _currentLevel;
-    private bool _isSwitchingState;
     private GameObject _currentCharacter;
+    private GameObject _currentPlayer;
+    private bool _isSwitchingState;
+    
     private Character scriptCharacter;
 
     private int _score;
@@ -143,7 +145,6 @@ public class GameManager : MonoBehaviour
                 {
                     Destroy(_currentLevel);
                 }
-                Instantiate(playerPrefab);
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
@@ -152,6 +153,7 @@ public class GameManager : MonoBehaviour
                 Destroy(_currentBall);
                 Destroy(_currentLevel);
                 Destroy(_currentCharacter);
+                Destroy(_currentPlayer);
                 Level++;
                 SwitchState(State.LOADLEVEL, 2f);
                 panelLevelCompleted.SetActive(true);
@@ -204,6 +206,10 @@ public class GameManager : MonoBehaviour
                 {
                     _currentCharacter = Instantiate(characterPrefab);
                     scriptCharacter = _currentCharacter.GetComponent<Character>();
+                }
+
+                if(_currentPlayer == null){
+                    _currentPlayer = Instantiate(playerPrefab);
                 }
                 
                 if (_currentLevel != null && scriptCharacter.touchingWithPaddle && !_isSwitchingState )
