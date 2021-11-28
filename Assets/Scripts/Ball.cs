@@ -9,7 +9,7 @@ public class Ball : MonoBehaviour
     private Rigidbody _rigidBody;
     private Vector3 _velocity;
     private Renderer _renderer;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void FixedUpdate()
@@ -35,7 +35,8 @@ public class Ball : MonoBehaviour
         _rigidBody.velocity = _rigidBody.velocity.normalized * _speed;
         // We store the velocity before the collision happens and gets absorbed
         _velocity = _rigidBody.velocity;
-        if (!_renderer.isVisible)
+
+        if (_rigidBody.position.y <= -20)
         {
             GameManager.Instance.Balls--;
             Destroy(gameObject);

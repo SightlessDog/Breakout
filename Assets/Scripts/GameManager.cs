@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private GameObject _currentLevel;
     private bool _isSwitchingState;
     private GameObject _currentCharacter;
+    private GameObject _currentPlayer;
     private Character scriptCharacter;
 
     private int _score;
@@ -81,7 +82,13 @@ public class GameManager : MonoBehaviour
         get { return _playerInput; }
         set { _playerInput = value; }
     }
-    
+
+    private bool _characterAlive = true;
+    public bool CharacterAlive
+    {
+        get { return _characterAlive; }
+        set { _characterAlive = value; }
+    }
 
     public void PlayClicked()
     {
@@ -139,11 +146,12 @@ public class GameManager : MonoBehaviour
                 Score = 0;
                 Level = 0;
                 Balls = 3;
+                CharacterAlive = true;
                 if (_currentLevel != null)
                 {
                     Destroy(_currentLevel);
                 }
-                Instantiate(playerPrefab);
+                _currentPlayer = Instantiate(playerPrefab);
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
@@ -172,6 +180,10 @@ public class GameManager : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("highscore", Score);
                 }
+                Destroy(_currentBall);
+                Destroy(_currentLevel);
+                Destroy(_currentCharacter);
+                Destroy(_currentPlayer);
                 panelGameOver.SetActive(true);
                 break;
             default:
@@ -200,13 +212,21 @@ public class GameManager : MonoBehaviour
                         SwitchState(State.GAMEOVER);
                     }
                 }
+
                 if (_currentCharacter == null)
                 {
-                    _currentCharacter = Instantiate(characterPrefab);
-                    scriptCharacter = _currentCharacter.GetComponent<Character>();
+                    if (_characterAlive)
+                    {
+                        _currentCharacter = Instantiate(characterPrefab);
+                        scriptCharacter = _currentCharacter.GetComponent<Character>();
+                    }
+                    else
+                    {
+                        SwitchState(State.GAMEOVER);
+                    }
                 }
-                
-                if (_currentLevel != null && scriptCharacter.touchingWithPaddle && !_isSwitchingState )
+
+                if (_currentLevel != null && scriptCharacter.touchingWithPaddle && !_isSwitchingState)
                 {
                     SwitchState(State.LEVELCOMPLETED);
                 }
