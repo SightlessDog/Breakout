@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     private GameObject _currentLevel;
     private bool _isSwitchingState;
     private GameObject _currentCharacter;
+    private GameObject _currentPlayer;
     private Character scriptCharacter;
 
     private int _score;
@@ -150,7 +151,7 @@ public class GameManager : MonoBehaviour
                 {
                     Destroy(_currentLevel);
                 }
-                Instantiate(playerPrefab);
+                _currentPlayer = Instantiate(playerPrefab);
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
@@ -179,6 +180,10 @@ public class GameManager : MonoBehaviour
                 {
                     PlayerPrefs.SetInt("highscore", Score);
                 }
+                Destroy(_currentBall);
+                Destroy(_currentLevel);
+                Destroy(_currentCharacter);
+                Destroy(_currentPlayer);
                 panelGameOver.SetActive(true);
                 break;
             default:
