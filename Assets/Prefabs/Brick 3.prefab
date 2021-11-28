@@ -97,8 +97,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hits: 2
   points: 200
+  acceleration: 1
+  resizeWidth: 1
   rotator: {x: 45, y: 0, z: 0}
   hitMaterial: {fileID: 2100000, guid: 178982047543da3498524c155bc6beb1, type: 2}
+  _hitBrickEffect: {fileID: 8300000, guid: 00162dfc020a5ce41a005702f7ff6021, type: 3}
 --- !u!65 &2190312130932362463
 BoxCollider:
   m_ObjectHideFlags: 0

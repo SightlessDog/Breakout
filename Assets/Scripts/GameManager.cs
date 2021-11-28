@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     private GameObject _currentCharacter;
     private GameObject _currentPlayer;
     private Character scriptCharacter;
+    public AudioClip _ballLosingSoundEffect;
+    public AudioClip _gameLosingSoundEffect;
+    public AudioClip _gameWinningSoundEffect;
 
     private int _score;
     public int Score
@@ -205,10 +208,12 @@ public class GameManager : MonoBehaviour
                 {
                     if (Balls > 0)
                     {
+                        SoundManager.Instance.Play(_ballLosingSoundEffect);
                         _currentBall = Instantiate(ballPrefab);
                     }
                     else
                     {
+                        SoundManager.Instance.Play(_gameLosingSoundEffect);
                         SwitchState(State.GAMEOVER);
                     }
                 }
@@ -228,6 +233,7 @@ public class GameManager : MonoBehaviour
 
                 if (_currentLevel != null && scriptCharacter.touchingWithPaddle && !_isSwitchingState)
                 {
+                    SoundManager.Instance.Play(_gameWinningSoundEffect);
                     SwitchState(State.LEVELCOMPLETED);
                 }
                 break;
@@ -266,6 +272,4 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
-
 }

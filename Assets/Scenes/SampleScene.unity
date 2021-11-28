@@ -167,6 +167,9 @@ MonoBehaviour:
   levels:
   - {fileID: 5762651683216780692, guid: fb61440bd20475d4382ab41b5d9c372a, type: 3}
   - {fileID: 5762651683216780692, guid: 015d7f842af92a440b575f52385f2670, type: 3}
+  _ballLosingSoundEffect: {fileID: 8300000, guid: bfe764541b404104585b6864f86380ed, type: 3}
+  _gameLosingSoundEffect: {fileID: 8300000, guid: a28c5fa61d892374fa1e5c20a83c8637, type: 3}
+  _gameWinningSoundEffect: {fileID: 8300000, guid: 78947cc0f0c30fc4f99d739554efde1d, type: 3}
 --- !u!4 &12469590
 Transform:
   m_ObjectHideFlags: 0
