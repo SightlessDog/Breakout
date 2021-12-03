@@ -10,6 +10,8 @@ public class Ball : MonoBehaviour
     private Vector3 _velocity;
     private Renderer _renderer;
 
+    public Boolean isBonusBall = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,8 @@ public class Ball : MonoBehaviour
         
         if (_rigidBody.position.y <= -20)
         {
-            GameManager.Instance.Balls--;
+            if (!isBonusBall) {GameManager.Instance.Balls--; }
+            
             Destroy(gameObject);
         }
     }
@@ -56,4 +59,5 @@ public class Ball : MonoBehaviour
         // We use the _velocity that we stored so we guarantee that the ball will get bounced
         _rigidBody.velocity = Vector3.Reflect(_velocity, collision.contacts[0].normal);
     }
+
 }
