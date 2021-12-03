@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject ballPrefab;
     public GameObject characterPrefab;
     public GameObject playerPrefab;
+    public GameObject paddleLight;
+    public GameObject ballLight;
     public Text scoreText;
     public Text ballText;
     public Text levelText;
@@ -155,6 +157,7 @@ public class GameManager : MonoBehaviour
                     Destroy(_currentLevel);
                 }
                 _currentPlayer = Instantiate(playerPrefab);
+
                 SwitchState(State.LOADLEVEL);
                 break;
             case State.PLAY:
@@ -210,6 +213,8 @@ public class GameManager : MonoBehaviour
                     {
                         SoundManager.Instance.Play(_ballLosingSoundEffect);
                         _currentBall = Instantiate(ballPrefab);
+                        Instantiate(paddleLight);
+                        Instantiate(ballLight);
                     }
                     else
                     {

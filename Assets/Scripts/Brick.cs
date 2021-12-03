@@ -12,7 +12,6 @@ public class Brick : MonoBehaviour
 
     [SerializeField] private Vector3 rotator;
     [SerializeField] private Material hitMaterial;
-
     private Material _orgMaterial;
     public AudioClip _hitBrickEffect;
 

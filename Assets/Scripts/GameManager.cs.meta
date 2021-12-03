@@ -4,9 +4,17 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+<<<<<<< HEAD
   - ballPrefab: {instanceID: 0}
   - characterPrefab: {instanceID: 0}
   - playerPrefab: {fileID: 8685870600017399760, guid: 9460c7ab230297e4c9c8bd958a32e0df, type: 3}
+=======
+  - ballPrefab: {fileID: 4087575856429622166, guid: 1f10b7a3779e2bf47abde962a33398e0, type: 3}
+  - characterPrefab: {fileID: 8685870600017399760, guid: 9460c7ab230297e4c9c8bd958a32e0df, type: 3}
+  - playerPrefab: {fileID: 1599102425721570600, guid: 6e004e1029eaa6c47ac4abce1b9d7a40, type: 3}
+  - paddleLight: {fileID: 5665984537157581145, guid: d4976b7f7a2fb8f49a9afb917896fcb8, type: 3}
+  - ballLight: {fileID: 4616860214456167232, guid: 0e92172b56fd1c64097a85a79603b525, type: 3}
+>>>>>>> 20ae16f (feat(Light): change the light of the scene)
   - scoreText: {instanceID: 0}
   - ballText: {instanceID: 0}
   - levelText: {instanceID: 0}
