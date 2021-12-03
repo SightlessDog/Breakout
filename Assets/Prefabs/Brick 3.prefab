@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9f19070e294a16a498f083b5553744d5, type: 2}
+  - {fileID: 2100000, guid: 6d7043edbbfb24c24a08c0178b74ccd8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hits: 2
   points: 200
-  acceleration: 1
+  acceleration: 1.1
   resizeWidth: 1
   rotator: {x: 45, y: 0, z: 0}
   hitMaterial: {fileID: 2100000, guid: 178982047543da3498524c155bc6beb1, type: 2}
