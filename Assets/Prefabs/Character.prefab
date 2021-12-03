@@ -841,6 +841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+  touchingWithPaddle: 0
 --- !u!95 &1605243890506166608
 Animator:
   serializedVersion: 3

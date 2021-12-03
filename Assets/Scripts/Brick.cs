@@ -6,13 +6,13 @@ public class Brick : MonoBehaviour
 {
     [SerializeField] private int hits = 1;
     [SerializeField] private int points = 100;
-    
+
     [SerializeField] private float acceleration = 1f;
     [SerializeField] private float resizeWidth = 1f;
-    
+
     [SerializeField] private Vector3 rotator;
     [SerializeField] private Material hitMaterial;
-	
+
     private Material _orgMaterial;
     public AudioClip _hitBrickEffect;
 
@@ -36,28 +36,31 @@ public class Brick : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        SoundManager.Instance.Play(_hitBrickEffect);        
-        brickWidth = Player._rigidbody.GetComponent<Renderer>().bounds.size.x;        
-        hits--;
-        // Score points
-        if (hits <= 0)
+        if (collision.gameObject.name == "Ball(Clone)")
         {
-            GameManager.Instance.Score += points;
-            Destroy(gameObject);
-        }
-        
-		if (Ball._speed <= 50f)
-		{
-            Ball._speed *= acceleration;
+            SoundManager.Instance.Play(_hitBrickEffect);
+            brickWidth = Player._rigidbody.GetComponent<Renderer>().bounds.size.x;
+            hits--;
+            // Score points
+            if (hits <= 0)
+            {
+                GameManager.Instance.Score += points;
+                Destroy(gameObject);
+            }
 
-            scaleChange = new Vector3(resizeWidth, 1f, 1f);
-            Player._rigidbody.transform.localScale = scaleChange;
+            if (Ball._speed <= 50f)
+            {
+                Ball._speed *= acceleration;
 
+                scaleChange = new Vector3(resizeWidth, 1f, 1f);
+                Player._rigidbody.transform.localScale = scaleChange;
+
+                _renderer.sharedMaterial = hitMaterial;
+                Invoke("RestoreMaterial", 0.05f);
+            }
             _renderer.sharedMaterial = hitMaterial;
-        	Invoke("RestoreMaterial", 0.05f);
-		}
-		_renderer.sharedMaterial = hitMaterial;
-        Invoke("RestoreMaterial", 0.05f);
+            Invoke("RestoreMaterial", 0.05f);
+        }
     }
 
     void RestoreMaterial()
