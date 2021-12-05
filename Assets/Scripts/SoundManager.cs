@@ -21,9 +21,15 @@ public class SoundManager : MonoBehaviour
 		DontDestroyOnLoad (gameObject);
 	}
 
-	public void Play(AudioClip clip)
+	public void Play(AudioClip clip, bool loop)
 	{
 		EffectsSource.clip = clip;
+		EffectsSource.loop = loop;
 		EffectsSource.Play();
+	}
+
+	public void PlayOnce(AudioClip clip)
+	{
+		EffectsSource.PlayOneShot(clip, 0.7f);
 	}
 }

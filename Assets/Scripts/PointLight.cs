@@ -8,12 +8,16 @@ public class PointLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ball = GameObject.Find("Ball(Clone)");
     }
 
     // Update is called once per frame
     void Update()
     {
-        ball = GameObject.Find("Ball(Clone)");
+        if (ball == null)
+        {
+            ball = GameObject.Find("Ball(Clone)");
+        } 
         transform.position = ball.transform.position - new Vector3(-2, -2, 7);
     }
 }
