@@ -8,13 +8,12 @@ public class PaddleLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        paddle = GameObject.Find("Player(Clone)");
     }
 
     // Update is called once per frame
     void Update()
     {
-        paddle = GameObject.Find("Player(Clone)");
         transform.position = paddle.transform.position + new Vector3(1, 1, -9);
     }
 }

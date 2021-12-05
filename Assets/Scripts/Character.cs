@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
     private Rigidbody _rigidBody;
     [SerializeField] private int rotationSpeed = 100;
     private Animator anim;
-    public bool touchingWithPaddle = false;
+    public bool touchingWithPaddle;
 
     // Start is called before the first frame update
     void Start()

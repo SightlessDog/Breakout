@@ -39,9 +39,10 @@ public class GameManager : MonoBehaviour
     private GameObject _currentCharacter;
     private GameObject _currentPlayer;
     private Character scriptCharacter;
-    public AudioClip _ballLosingSoundEffect;
-    public AudioClip _gameLosingSoundEffect;
-    public AudioClip _gameWinningSoundEffect;
+    [SerializeField] private AudioClip _ballLosingSoundEffect;
+    [SerializeField] private AudioClip _gameLosingSoundEffect;
+    [SerializeField] private AudioClip _gameWinningSoundEffect;
+    [SerializeField] private AudioClip _themeSong;
 
     private int _score;
     public int Score
@@ -144,6 +145,7 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 highScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("highscore");
                 panelMenu.SetActive(true);
+                SoundManager.Instance.Play(_themeSong, true);
                 break;
             case State.INIT:
                 Cursor.visible = false;
@@ -211,14 +213,14 @@ public class GameManager : MonoBehaviour
                 {
                     if (Balls > 0)
                     {
-                        SoundManager.Instance.Play(_ballLosingSoundEffect);
+                        SoundManager.Instance.PlayOnce(_ballLosingSoundEffect);
                         _currentBall = Instantiate(ballPrefab);
                         Instantiate(paddleLight);
                         Instantiate(ballLight);
                     }
                     else
                     {
-                        SoundManager.Instance.Play(_gameLosingSoundEffect);
+                        SoundManager.Instance.Play(_gameLosingSoundEffect, false);
                         SwitchState(State.GAMEOVER);
                     }
                 }
@@ -238,7 +240,7 @@ public class GameManager : MonoBehaviour
 
                 if (_currentLevel != null && scriptCharacter.touchingWithPaddle && !_isSwitchingState)
                 {
-                    SoundManager.Instance.Play(_gameWinningSoundEffect);
+                    SoundManager.Instance.Play(_gameWinningSoundEffect, false);
                     SwitchState(State.LEVELCOMPLETED);
                 }
                 break;
