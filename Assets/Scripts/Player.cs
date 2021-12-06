@@ -33,7 +33,10 @@ public class Player : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        SoundManager.Instance.PlaySoundOnce(_hitPlayerEffect);        
+        if (collision.gameObject.name == "Ball(Clone)" || collision.gameObject.name == "BallBonus(Clone)")
+        {
+            SoundManager.Instance.PlaySoundOnce(_hitPlayerEffect);
+        }
     }
 
     void MouseMovement()
