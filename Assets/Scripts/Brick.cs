@@ -18,6 +18,7 @@ public class Brick : MonoBehaviour
     private Renderer _renderer;
     private Vector3 scaleChange;
     private float brickWidth;
+    private SoundManager _soundManager;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class Brick : MonoBehaviour
     {
         if (collision.gameObject.name == "Ball(Clone)")
         {
-            SoundManager.Instance.Play(_hitBrickEffect);
+            SoundManager.Instance.PlayOnce(_hitBrickEffect);
             brickWidth = Player._rigidbody.GetComponent<Renderer>().bounds.size.x;
             hits--;
             // Score points

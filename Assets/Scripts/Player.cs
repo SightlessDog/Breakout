@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        SoundManager.Instance.Play(_hitPlayerEffect);        
+        SoundManager.Instance.PlayOnce(_hitPlayerEffect);        
     }
 
     void MouseMovement()
