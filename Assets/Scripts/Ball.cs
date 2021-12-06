@@ -37,7 +37,8 @@ public class Ball : MonoBehaviour
         _velocity = _rigidBody.velocity;
         
         if ((_rigidBody.velocity.y <= 1f) &&
-            (Mathf.Sign(_rigidBody.velocity.y) >= -1))
+            (Mathf.Sign(_rigidBody.velocity.y) >= -1) &&
+            _rigidBody.velocity.x != 0)
         {
             _rigidBody.AddForce(new Vector2(0, -8f));
         }
