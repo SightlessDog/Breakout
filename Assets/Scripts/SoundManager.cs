@@ -1,35 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-	public AudioSource EffectsSource;
+    public AudioSource EffectsSoundSource;
+    public AudioSource EffectsMusicSource;
+    public static SoundManager Instance = null;
+    private float SoundVolume;
+    private float MusicVolume;
+    public Slider SoundVolumeSlider;
+    public Slider MusicVolumeSlider;
 
-	public static SoundManager Instance = null;
-	
-	private void Awake()
-	{
-		if (Instance == null)
-		{
-			Instance = this;
-		}
-		else if (Instance != this)
-		{
-			Destroy(gameObject);
-		}
-		DontDestroyOnLoad (gameObject);
-	}
+    void Start()
+    {
+        SoundVolume = SoundVolumeSlider.value;
+        MusicVolume = MusicVolumeSlider.value;
+    }
 
-	public void Play(AudioClip clip, bool loop)
-	{
-		EffectsSource.clip = clip;
-		EffectsSource.loop = loop;
-		EffectsSource.Play();
-	}
+    void Update()
+    {
+		EffectsMusicSource.volume = MusicVolume;
+    }
 
-	public void PlayOnce(AudioClip clip)
-	{
-		EffectsSource.PlayOneShot(clip, 0.7f);
-	}
+    public void updateMusicVolume(float volume)
+    {
+        MusicVolume = volume;
+    }
+
+    public void updateSoundVolume(float volume)
+    {
+        SoundVolume = volume;
+    }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void PlayMusic(AudioClip clip, bool loop)
+    {
+        EffectsMusicSource.clip = clip;
+        EffectsMusicSource.loop = loop;
+        EffectsMusicSource.volume = MusicVolume;
+        EffectsMusicSource.Play();
+    }
+
+    public void PlaySoundOnce(AudioClip clip)
+    {
+        EffectsSoundSource.PlayOneShot(clip, SoundVolume);
+    }
 }
