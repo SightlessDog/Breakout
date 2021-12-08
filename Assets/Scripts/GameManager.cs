@@ -1,8 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +19,11 @@ public class GameManager : MonoBehaviour
     public GameObject panelPlay;
     public GameObject panelLevelCompleted;
     public GameObject panelGameOver;
+    public GameObject panelOption;
+    public GameObject panelOptionMenu;
+    public GameObject panelMainMenu;
+    public GameObject panelHighscore;
+    public GameObject buttonResume;
 
     public GameObject[] levels;
 
@@ -96,6 +98,8 @@ public class GameManager : MonoBehaviour
         set { _characterAlive = value; }
     }
 
+    public static bool GameIsPaused = false;
+
     public void PlayClicked()
     {
         SwitchState(State.INIT);
@@ -122,6 +126,47 @@ public class GameManager : MonoBehaviour
         SwitchState(State.MENU);
     }
 
+    void setPauseOption()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    public void Resume()
+    {
+        Cursor.visible = false;
+        panelMenu.SetActive(false);
+        panelOption.SetActive(false);
+        panelOptionMenu.SetActive(false);
+        panelMainMenu.SetActive(true);
+        panelHighscore.SetActive(true);
+        buttonResume.SetActive(false);
+        GameIsPaused = false;
+        Time.timeScale = 1f;
+    }
+
+    void Pause()
+    {
+        Cursor.visible = true;
+        panelMenu.SetActive(true);
+        panelOption.SetActive(true);
+        panelOptionMenu.SetActive(true);
+        panelMainMenu.SetActive(false);
+        panelHighscore.SetActive(false);
+        buttonResume.SetActive(true);
+        GameIsPaused = true;
+        Time.timeScale = 0f;
+    }
+
     public void SwitchState(State newState, float delay = 1f)
     {
         StartCoroutine(SwitchDelay(newState, delay));
@@ -145,7 +190,7 @@ public class GameManager : MonoBehaviour
                 Cursor.visible = true;
                 highScoreText.text = "HIGHSCORE: " + PlayerPrefs.GetInt("highscore");
                 panelMenu.SetActive(true);
-                SoundManager.Instance.Play(_themeSong, true);
+                SoundManager.Instance.PlayMusic(_themeSong, true);
                 break;
             case State.INIT:
                 Cursor.visible = false;
@@ -209,18 +254,19 @@ public class GameManager : MonoBehaviour
             case State.INIT:
                 break;
             case State.PLAY:
+                setPauseOption();
                 if (_currentBall == null)
                 {
                     if (Balls > 0)
                     {
-                        SoundManager.Instance.PlayOnce(_ballLosingSoundEffect);
+                        SoundManager.Instance.PlaySoundOnce(_ballLosingSoundEffect);
                         _currentBall = Instantiate(ballPrefab);
                         Instantiate(paddleLight);
                         Instantiate(ballLight);
                     }
                     else
                     {
-                        SoundManager.Instance.Play(_gameLosingSoundEffect, false);
+                        SoundManager.Instance.PlaySoundOnce(_gameLosingSoundEffect);
                         SwitchState(State.GAMEOVER);
                     }
                 }
@@ -240,7 +286,7 @@ public class GameManager : MonoBehaviour
 
                 if (_currentLevel != null && scriptCharacter.touchingWithPaddle && !_isSwitchingState)
                 {
-                    SoundManager.Instance.Play(_gameWinningSoundEffect, false);
+                    SoundManager.Instance.PlaySoundOnce(_gameWinningSoundEffect);
                     SwitchState(State.LEVELCOMPLETED);
                 }
                 break;
