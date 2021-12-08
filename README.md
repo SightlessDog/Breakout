@@ -7,12 +7,12 @@ Unity project for B23.1 GT2 Game Engines WiSe21/22
 - Please try to name your variables as accurate as possible (think of the people who don't know the code)
 - Please try to stay within the convention of conventional commits https://www.conventionalcommits.org/en/v1.0.0/
 
-# Spielidee
+# Game Idea
 Our game is called the Breakout game and is inspired by the famous old game Breakout https://en.wikipedia.org/wiki/Breakout_(video_game) and based on this tutorial https://www.youtube.com/watch?v=gCqOnchV4V0. 
 
 After Setting up the basic game, Elyess Eleuch started sketching some new ideas for the game. And he came up with the idea that we could instead of just breaking the bricks save a character which is stuck on an Island and surrounded by the bricks.  
 
-## - HauptMechanik
+## - Main Mechanic
 * Set up different levels 
 * Start Button
 * Ende Screen
@@ -27,7 +27,21 @@ After Setting up the basic game, Elyess Eleuch started sketching some new ideas 
 * Arcade
 * Low Poly
 
-## - Mitarbeiter
+## - How to play the game
+to control the paddle that hits the ball you have two options, you can either control it with the mouse or with the keyboard. For the that you can access the sttings menu and put the parameters that you would like to have. There you can also adjust the music and sound effects volume. 
+After starting the game, your main goal is to save the character and for that you have 3 balls that you can use. When you run out of balls you lose.
+There different brick styles, each one has its own property, there ones that get destroyed after only one hit and ones after two hits.. hitting the brick accelerates the ball, so beware :). 
+The whole scene starts dark, but at some point you will have the possiblity to turn the lights on by hitting the lamp :). 
+There is a trick brick, once it gets hit it will generate a extra ball. 
+To stop the game you can hit the spacebar at anytime. 
+
+## - Images 
+![Menu](Assets/Images/Menu.png)
+![Settings](Assets/Images/Settings.png)
+![Dark Scene](Assets/Images/dark scene.png)
+![Pausing the game](Assets/Images/pausing the game.png)
+
+## - Participants
  - Elyess Eleuch
  - Liav Keren
  - Sophie Preußer
