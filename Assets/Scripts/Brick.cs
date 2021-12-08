@@ -38,7 +38,7 @@ public class Brick : MonoBehaviour
     {
         if (collision.gameObject.name == "Ball(Clone)")
         {
-            SoundManager.Instance.PlayOnce(_hitBrickEffect);
+            SoundManager.Instance.PlaySoundOnce(_hitBrickEffect);
             brickWidth = Player._rigidbody.GetComponent<Renderer>().bounds.size.x;
             hits--;
             // Score points
