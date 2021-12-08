@@ -20,7 +20,10 @@ public class GameManager : MonoBehaviour
     public GameObject panelLevelCompleted;
     public GameObject panelGameOver;
     public GameObject panelOption;
-    public GameObject gameOption;
+    public GameObject panelOptionMenu;
+    public GameObject panelMainMenu;
+    public GameObject panelHighscore;
+    public GameObject buttonResume;
 
     public GameObject[] levels;
 
@@ -138,18 +141,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Resume()
+    public void Resume()
     {
+        Cursor.visible = false;
+        panelMenu.SetActive(false);
         panelOption.SetActive(false);
-        gameOption.SetActive(false);
+        panelOptionMenu.SetActive(false);
+        panelMainMenu.SetActive(true);
+        panelHighscore.SetActive(true);
+        buttonResume.SetActive(false);
         GameIsPaused = false;
         Time.timeScale = 1f;
     }
 
     void Pause()
     {
+        Cursor.visible = true;
+        panelMenu.SetActive(true);
         panelOption.SetActive(true);
-        gameOption.SetActive(true);
+        panelOptionMenu.SetActive(true);
+        panelMainMenu.SetActive(false);
+        panelHighscore.SetActive(false);
+        buttonResume.SetActive(true);
         GameIsPaused = true;
         Time.timeScale = 0f;
     }
