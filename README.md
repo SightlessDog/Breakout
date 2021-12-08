@@ -37,9 +37,9 @@ To stop the game you can hit the spacebar at anytime.
 
 ## - Images 
 ![Menu](Assets/Images/Menu.PNG)
-![Settings](Assets/Images/Settings.png)
-![Dark Scene](Assets/Images/dark scene.png)
-![Pausing the game](Assets/Images/pausing the game.png)
+![Settings](Assets/Images/Settings.PNG)
+![Dark Scene](Assets/Images/dark scene.PNG)
+![Pausing the game](Assets/Images/pausing the game.PNG)
 
 ## - Participants
  - Elyess Eleuch
