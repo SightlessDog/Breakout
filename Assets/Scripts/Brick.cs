@@ -36,7 +36,7 @@ public class Brick : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Ball(Clone)")
+        if (collision.gameObject.name == "Ball(Clone)" || collision.gameObject.name == "BallBonus(Clone)")
         {
             SoundManager.Instance.PlaySoundOnce(_hitBrickEffect);
             brickWidth = Player._rigidbody.GetComponent<Renderer>().bounds.size.x;
