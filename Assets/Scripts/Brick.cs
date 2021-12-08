@@ -45,19 +45,23 @@ public class Brick : MonoBehaviour
             if (hits <= 0)
             {
                 GameManager.Instance.Score += points;
+				Ball._speed = 20f;
                 Destroy(gameObject);
             }
 
             if (Ball._speed <= 50f)
             {
                 Ball._speed *= acceleration;
+			}
+
+            if (Ball._speed >= 20f && acceleration == 1)
+            {
+                Ball._speed = 20f;
+			}
 
                 scaleChange = new Vector3(resizeWidth, 1f, 1f);
                 Player._rigidbody.transform.localScale = scaleChange;
 
-                _renderer.sharedMaterial = hitMaterial;
-                Invoke("RestoreMaterial", 0.05f);
-            }
             _renderer.sharedMaterial = hitMaterial;
             Invoke("RestoreMaterial", 0.05f);
         }
