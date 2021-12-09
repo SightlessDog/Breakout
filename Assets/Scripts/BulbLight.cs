@@ -5,13 +5,13 @@ public class BulbLight : MonoBehaviour
     // Start is called before the first frame update
     private Bulb bulbScript;
     private GameObject bulb;
-    Light light; 
+    private Light bulbLight; 
     
     void Start()
     {
         bulb = GameObject.Find("Double_Reflctor"); 
         bulbScript = bulb.GetComponent<Bulb>(); 
-        light = GetComponent<Light>();
+        bulbLight = GetComponent<Light>();
     }
 
     // Update is called once per frame
@@ -19,15 +19,15 @@ public class BulbLight : MonoBehaviour
     {
         if (bulbScript.hit)
         {
-            light.intensity = 200;
-            light.range = 100;
-            light.color = Color.white;
+            bulbLight.intensity = 200;
+            bulbLight.range = 100;
+            bulbLight.color = Color.white;
         }
         else
         {
-            light.range = 10;
-            light.intensity = 10;
-            light.color = new Color(0, 155, 255, 255); 
+            bulbLight.range = 10;
+            bulbLight.intensity = 10;
+            bulbLight.color = new Color(0, 155, 255, 255); 
         }
     }
 }

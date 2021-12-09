@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PaddleLight : MonoBehaviour
 {
-    public GameObject paddle; 
+    public GameObject paddle;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +14,9 @@ public class PaddleLight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = paddle.transform.position + new Vector3(1, 1, -9);
+        if (paddle != null)
+        {
+            transform.position = paddle.transform.position + new Vector3(1, 1, -9);
+        }
     }
 }
