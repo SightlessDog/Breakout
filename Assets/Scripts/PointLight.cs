@@ -17,7 +17,10 @@ public class PointLight : MonoBehaviour
         if (ball == null)
         {
             ball = GameObject.Find("Ball(Clone)");
-        } 
-        transform.position = ball.transform.position - new Vector3(-2, -2, 7);
+        }
+        if (ball != null)
+        {
+            transform.position = ball.transform.position - new Vector3(-2, -2, 7);
+        }
     }
 }
