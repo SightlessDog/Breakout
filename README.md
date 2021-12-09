@@ -32,7 +32,7 @@ to control the paddle that hits the ball you have two options, you can either co
 After starting the game, your main goal is to save the character and for that you have 3 balls that you can use. When you run out of balls you lose.
 There different brick styles, each one has its own property, there ones that get destroyed after only one hit and ones after two hits.. hitting the brick accelerates the ball, so beware :). 
 The whole scene starts dark, but at some point you will have the possiblity to turn the lights on by hitting the lamp :). 
-There is a trick brick, once it gets hit it will generate a extra ball. 
+There is a trick brick, once it gets hit it will generate a extra ball that has no light to make things a bit more diffcult. 
 To stop the game you can hit the spacebar at anytime. 
 
 ## - Images 
